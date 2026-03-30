@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'nursery_api' => [
+        'base_url' => env('NURSERY_API_URL', 'http://forest-nursery-api.test'),
+        'internal_url' => env('NURSERY_API_INTERNAL_URL'),
+        'timeout' => env('NURSERY_API_TIMEOUT', 15),
+    ],
+
 ];
