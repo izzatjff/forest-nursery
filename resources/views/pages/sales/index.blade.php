@@ -47,9 +47,9 @@
                 </thead>
                 <tbody>
                     @foreach($sales as $sale)
-                    <tr>
-                        <td>
-                            <a href="{{ route('sales.show', $sale->id) }}" style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:#0f172a;text-decoration:none;">{{ $sale->sale_number }}</a>
+                    <tr class="hover:cursor-pointer" onclick="window.location.href='{{ route('sales.show', $sale->id) }}';">
+                        <td style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:#0f172a;text-decoration:none;">
+                            {{ $sale->sale_number }}
                         </td>
                         <td style="font-weight:500;">{{ $sale->customer_name ?: 'Walk-in' }}</td>
                         <td style="text-align:center;">

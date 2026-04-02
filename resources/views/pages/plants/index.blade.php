@@ -49,9 +49,9 @@
                 </thead>
                 <tbody>
                     @foreach($plants as $plant)
-                    <tr>
-                        <td>
-                            <a href="{{ route('plants.show', $plant->uuid) }}" style="font-family:var(--font-mono);font-size:11.5px;color:#64748b;text-decoration:none;">{{ substr($plant->uuid, 0, 8) }}…</a>
+                    <tr class="hover:cursor-pointer" onclick="window.location.href='{{ route('plants.show', $plant->uuid) }}';">
+                        <td style="font-family:var(--font-mono);font-size:11.5px;color:#64748b;text-decoration:none;">
+                            {{ substr($plant->uuid, 0, 8) }}…
                         </td>
                         <td style="font-weight:500;">{{ $plant->species->name ?? '—' }}</td>
                         <td style="text-align:center;font-family:var(--font-mono);font-size:13px;font-weight:600;">{{ $plant->height_cm }}<span style="color:#94a3b8;font-weight:400;margin-left:2px;">cm</span></td>
@@ -80,7 +80,7 @@
                         <td style="text-align:center;">
                             <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
                                 <a href="{{ route('plants.edit', $plant->uuid) }}" class="btn btn-sm btn-secondary">Edit</a>
-                                <button type="button" class="btn btn-sm btn-danger-outline" onclick="confirmDelete('{{ route('plants.destroy', $plant->uuid) }}', '{{ substr($plant->uuid, 0, 8) }}')">Delete</button>
+                                <button type="button" class="btn btn-sm btn-danger-outline" onclick="event.stopPropagation(); confirmDelete('{{ route('plants.destroy', $plant->uuid) }}', '{{ substr($plant->uuid, 0, 8) }}')">Delete</button>
                             </div>
                         </td>
                     </tr>

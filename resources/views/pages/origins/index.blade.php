@@ -48,9 +48,9 @@
                 </thead>
                 <tbody>
                     @foreach($origins as $origin)
-                    <tr>
-                        <td style="font-weight:600;color:#0f172a;">
-                            <a href="{{ route('origins.show', $origin->id) }}" style="color:inherit;text-decoration:none;">{{ $origin->name }}</a>
+                    <tr class="hover:cursor-pointer" onclick="window.location.href='{{ route('origins.show', $origin->id) }}';">
+                        <td style="font-weight:600;color:#0f172a; text-decoration: none;" >
+                            {{ $origin->name }}
                         </td>
                         <td><span class="badge badge-gray">{{ $origin->region_code }}</span></td>
                         <td style="color:#64748b;">{{ $origin->country ?? '—' }}</td>
@@ -66,7 +66,7 @@
                         <td style="text-align:center;">
                             <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
                                 <a href="{{ route('origins.edit', $origin->id) }}" class="btn btn-sm btn-secondary">Edit</a>
-                                <button type="button" class="btn btn-sm btn-danger-outline" onclick="confirmDelete('{{ route('origins.destroy', $origin->id) }}', '{{ addslashes($origin->name) }}')">Delete</button>
+                                <button type="button" class="btn btn-sm btn-danger-outline" onclick="event.stopPropagation(); confirmDelete('{{ route('origins.destroy', $origin->id) }}', '{{ addslashes($origin->name) }}')">Delete</button>
                             </div>
                         </td>
                     </tr>

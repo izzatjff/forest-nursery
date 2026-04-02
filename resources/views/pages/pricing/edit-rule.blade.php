@@ -75,7 +75,7 @@
 
             <div class="form-group">
                 <label class="form-label" for="criteria">Criteria (JSON)</label>
-                <textarea name="criteria" id="criteria" class="form-input form-textarea @error('criteria') form-input-error @enderror" rows="3">{{ old('criteria', is_array($pricingRule->criteria) ? json_encode($pricingRule->criteria, JSON_PRETTY_PRINT) : $pricingRule->criteria) }}</textarea>
+                <textarea name="criteria" id="criteria" class="form-input form-textarea @error('criteria') form-input-error @enderror" rows="3">{{ old('criteria', (is_array($pricingRule->criteria) || is_object($pricingRule->criteria)) ? json_encode($pricingRule->criteria, JSON_PRETTY_PRINT) : $pricingRule->criteria) }}</textarea>
                 @error('criteria') <span class="form-error">{{ $message }}</span> @enderror
             </div>
 

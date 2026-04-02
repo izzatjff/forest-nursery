@@ -48,9 +48,9 @@
                 </thead>
                 <tbody>
                     @foreach($species as $sp)
-                    <tr>
-                        <td style="font-weight:600;color:#0f172a;">
-                            <a href="{{ route('species.show', $sp->id) }}" style="color:inherit;text-decoration:none;">{{ $sp->name }}</a>
+                    <tr class="hover:cursor-pointer" onclick="window.location.href='{{ route('species.show', $sp->id) }}';">
+                        <td class="font-bold">
+                            {{ $sp->name }}
                         </td>
                         <td style="font-style:italic;color:#64748b;font-size:12.5px;">{{ $sp->scientific_name }}</td>
                         <td style="text-align:right;font-family:var(--font-mono);font-weight:600;color:#16a34a;">RM{{ number_format($sp->base_price, 2) }}</td>
@@ -60,7 +60,7 @@
                         <td style="text-align:center;">
                             <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
                                 <a href="{{ route('species.edit', $sp->id) }}" class="btn btn-sm btn-secondary">Edit</a>
-                                <button type="button" class="btn btn-sm btn-danger-outline" onclick="confirmDelete('{{ route('species.destroy', $sp->id) }}', '{{ addslashes($sp->name) }}')">Delete</button>
+                                <button type="button" class="btn btn-sm btn-danger-outline" onclick="event.stopPropagation(); confirmDelete('{{ route('species.destroy', $sp->id) }}', '{{ addslashes($sp->name) }}')">Delete</button>
                             </div>
                         </td>
                     </tr>

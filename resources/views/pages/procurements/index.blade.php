@@ -49,9 +49,8 @@
                 </thead>
                 <tbody>
                     @foreach($procurements as $proc)
-                    <tr>
-                        <td>
-                            <a href="{{ route('procurements.show', $proc->id) }}" style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:#0f172a;text-decoration:none;">{{ $proc->procurement_number }}</a>
+                    <tr class="hover:cursor-pointer" onclick="window.location.href='{{ route('procurements.show', $proc->id) }}';">
+                        <td style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:#0f172a;text-decoration:none;">{{ $proc->procurement_number }}
                         </td>
                         <td style="font-weight:500;">{{ $proc->supplier_name }}</td>
                         <td>{{ $proc->species->name ?? '—' }}</td>

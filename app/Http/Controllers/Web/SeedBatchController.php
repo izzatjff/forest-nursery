@@ -38,7 +38,8 @@ class SeedBatchController extends Controller
     {
         $seedBatch = $this->api->find("seed-batches/{$id}");
 
-        $seedBatch->plants = $this->api->all('plants', ['seed_batch_id' => $id, 'per_page' => 100]);
+        $allPlants = $this->api->all('plants', ['per_page' => 100]);
+        $seedBatch->plants = $allPlants->filter(fn ($plant) => isset($plant->seed_batch) && (string) $plant->seed_batch->id === (string) $id)->values();
 
         return view('pages.seed-batches.show', compact('seedBatch'));
     }

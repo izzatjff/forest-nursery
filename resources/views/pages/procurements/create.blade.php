@@ -59,7 +59,7 @@
                     <label class="form-label" for="source_type">Source Type <span class="text-red">*</span></label>
                     <select name="source_type" id="source_type" class="form-input @error('source_type') form-input-error @enderror" required>
                         <option value="purchased" {{ old('source_type') === 'purchased' ? 'selected' : '' }}>Purchased</option>
-                        <option value="wild_collected" {{ old('source_type') === 'wild_collected' ? 'selected' : '' }}>Wild Collected</option>
+                        <option value="wild_collected" {{ old('source_type') === 'wild_collected' ? 'selected' : '' }}>Wilding</option>
                         <option value="donated" {{ old('source_type') === 'donated' ? 'selected' : '' }}>Donated</option>
                     </select>
                     @error('source_type') <span class="form-error">{{ $message }}</span> @enderror

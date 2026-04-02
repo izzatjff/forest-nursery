@@ -89,7 +89,7 @@
 </div>
 
 <!-- Pricing Rules -->
-{{-- <div class="card">
+<div class="card">
     <div class="card-body">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
             <div class="card-title" style="margin-bottom:0;">
@@ -110,7 +110,7 @@
                     @php
                         $valueStr = number_format($r->multiplier, 2) . '×';
                         if ($r->flat_adjustment != 0) {
-                            $valueStr .= ($r->flat_adjustment > 0 ? ' + ' : ' − ') . '$' . number_format(abs($r->flat_adjustment), 2);
+                            $valueStr .= ($r->flat_adjustment > 0 ? ' + ' : ' − ') . 'RM' . number_format(abs($r->flat_adjustment), 2);
                         }
                     @endphp
                     <div class="pricing-row">
@@ -145,5 +145,5 @@
             </div>
         @endif
     </div>
-</div> --}}
+</div>
 @endsection

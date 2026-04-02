@@ -86,8 +86,9 @@
             </thead>
             <tbody>
                 @foreach($species->seed_batches as $batch)
-                <tr>
-                    <td><a href="{{ route('seed-batches.show', $batch->id) }}" style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:#0f172a;text-decoration:none;">{{ $batch->batch_code }}</a></td>
+                <tr class="hover:cursor-pointer" onclick="window.location='{{ route('seed-batches.show', $batch->id) }}';">
+                    <td style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:#0f172a;text-decoration:none;">
+                        {{ $batch->batch_code }}</td>
                     <td>{{ $batch->origin->name ?? '—' }}</td>
                     <td>{{ number_format($batch->remaining_quantity) }} / {{ number_format($batch->initial_quantity) }}</td>
                     <td>
